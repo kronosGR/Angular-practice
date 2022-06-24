@@ -7,9 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   text = '';
+  reversedText = '';
 
   onClickReverse() {
-    console.log('Clicked');
+    this.reversedText = this.text.split('').reverse().join('');
   }
 
   onInputText(event: any) {
