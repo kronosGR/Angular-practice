@@ -1,1 +1,2 @@
-<app-post [img]="posts[0].img" [author]="posts[0].author" [title]="posts[0].title"></app-post>
+<app-post *ngFor="let post of posts" [img]="post.img" [author]="post.author" [title]="post.title">
+</app-post>
