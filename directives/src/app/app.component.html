@@ -1,7 +1,7 @@
 <ul class="pagination">
   <li class="page-item" [appClass]="{disabled: activeImg === 0}">
     <a class="page-link" href="#" (click)="activeImg=activeImg -1">Previous</a></li>
-  <ng-container *ngFor="let img of images; let i=index">
+  <ng-container *appLoop="images.length; let i=index">
     <li class="page-item" [appClass]="{active: i=== activeImg}" *ngIf="showImage(i)">
       <a class="page-link" href="#" (click)="activeImg=i">{{i+1}}</a>
     </li>
