@@ -6,11 +6,14 @@ import { AppComponent } from './app.component';
 import { HomeModule } from './home/home.module';
 import {ContactModule} from "./contact/contact.module";
 import {AboutModule} from "./about/about.module";
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, HomeModule,ContactModule,AboutModule],
+  declarations: [AppComponent, PageNotFoundComponent],
+  imports: [BrowserModule,  HomeModule,ContactModule,AboutModule,AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+
+
