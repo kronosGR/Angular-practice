@@ -7,7 +7,7 @@ import { ClientsComponent } from './clients/clients.component';
 
 const routes: Routes = [
   {
-    path: 'about',
+    path: '',
     component: AboutMainComponent,
     children: [
       { path: '', component: BioComponent },
