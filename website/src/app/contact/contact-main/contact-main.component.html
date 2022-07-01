@@ -14,4 +14,4 @@
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
-<app-modal *ngIf="toggleModal"></app-modal>
+<app-modal *ngIf="toggleModal" (close)="toggleModal=false"></app-modal>
