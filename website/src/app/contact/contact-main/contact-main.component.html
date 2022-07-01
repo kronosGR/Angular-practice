@@ -14,4 +14,7 @@
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
-<app-modal *ngIf="toggleModal" (close)="toggleModal=false"></app-modal>
+<app-modal *ngIf="toggleModal" (close)="toggleModal=false">
+  <ng-container modalTitle>Form Submitted</ng-container>
+  <p>We'll get back to you ASAP!</p>
+</app-modal>
