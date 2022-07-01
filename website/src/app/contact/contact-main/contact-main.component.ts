@@ -3,13 +3,17 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-contact-main',
   templateUrl: './contact-main.component.html',
-  styleUrls: ['./contact-main.component.css']
+  styleUrls: ['./contact-main.component.css'],
 })
 export class ContactMainComponent implements OnInit {
+  toggleModal = false;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  onSubmit(e: SubmitEvent) {
+    e.preventDefault();
+    this.toggleModal = !this.toggleModal;
   }
-
 }
