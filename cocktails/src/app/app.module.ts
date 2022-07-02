@@ -2,15 +2,14 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { FormComponent } from './form/form.component';
+import { ResultsComponent } from './results/results.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
+  declarations: [AppComponent, FormComponent, ResultsComponent],
+  imports: [BrowserModule],
   providers: [],
-  bootstrap: [AppComponent]
+  exports: [FormComponent, ResultsComponent],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
