@@ -10,6 +10,8 @@ export class AppComponent {
   constructor(private cocktail: CocktailService) {}
 
   search(query: string) {
-    console.log(query);
+    this.cocktail.search(query).subscribe((response) => {
+      console.log(response);
+    });
   }
 }
