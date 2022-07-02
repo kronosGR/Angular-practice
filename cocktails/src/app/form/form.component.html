@@ -1,7 +1,7 @@
 <div class="card mt-3">
   <div class="card-body">
-    <form class="input-group mb-3">
-      <input type="text" class="form-control">
+    <form class="input-group mb-3" (submit)="onSubmit($event)">
+      <input type="text" class="form-control" (input)="updateQuery($event)">
       <div class="input-group-append">
         <button class="btn btn-primary" type="submit">Search</button>
       </div>
