@@ -21,6 +21,6 @@ export class ResultsComponent implements OnInit {
     }
 
     const reg = new RegExp('(' + this.query + ')', 'gi');
-    return str.replace(reg, '<span class="alert-primary">$1</span>');
+    return str.replace(reg, '<span class="font-weight-bold">$1</span>');
   }
 }
