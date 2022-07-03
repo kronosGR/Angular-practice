@@ -7,11 +7,14 @@ import { CocktailService } from './cocktail.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  drinks = [];
   constructor(private cocktail: CocktailService) {}
 
   search(query: string) {
-    this.cocktail.search(query).subscribe((response) => {
-      console.log(response);
+    this.cocktail.search(query).subscribe((response: any) => {
+      // console.log(response);
+      this.drinks = response.drinks;
+      // console.log(this.drinks);
     });
   }
 }
