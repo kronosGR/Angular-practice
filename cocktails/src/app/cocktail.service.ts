@@ -2,6 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { pluck } from 'rxjs';
 
+interface CocktailResponse {
+  drinks: {
+    strDrink: string;
+    strInstructions: string;
+  };
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -11,11 +18,14 @@ export class CocktailService {
   public search(query: string) {
     return (
       this.http
-        .get('https://www.thecocktaildb.com/api/json/v1/1/search.php', {
-          params: {
-            s: query,
-          },
-        })
+        .get<CocktailResponse>(
+          'https://www.thecocktaildb.com/api/json/v1/1/search.php',
+          {
+            params: {
+              s: query,
+            },
+          }
+        )
         // returns only the drinks field
         .pipe(pluck('drinks'))
     );
