@@ -4,7 +4,32 @@
       <div class="row">
         <div class="col-md-6 mb-3">
           <label>Name of card</label>
-          <input type="text" class="form-control" formControlName="name" />
+          <input
+            type="text"
+            class="form-control"
+            formControlName="name"
+            [ngClass]="{ 'is-invalid': ccForm.get('name')?.errors }"
+          />
+          <ng-container *ngIf="ccForm.get('name')?.errors">
+            <div
+              *ngIf="ccForm.get('name')?.errors?.['required']"
+              class="invalid-feedback"
+            >
+              Please fill in the field
+            </div>
+            <div
+              *ngIf="ccForm.get('name')?.errors?.['minlength']"
+              class="invalid-feedback"
+            >
+              The value you inputted is
+              {{ ccForm.get("name")?.errors?.['minlength']?.['actualLength'] }}
+              characters long. It must be at least
+              {{
+                ccForm.get("name")?.errors?.['minlength']?.['requiredLength']
+              }}
+              characters long.
+            </div>
+          </ng-container>
         </div>
         <div class="col-md-6 mb-3">
           <label>Credit card number</label>
