@@ -8,9 +8,20 @@
             type="text"
             class="form-control"
             formControlName="name"
-            [ngClass]="{ 'is-invalid': ccForm.get('name')?.errors }"
+            [ngClass]="{
+              'is-invalid':
+                ccForm.get('name')?.dirty &&
+                ccForm.get('name')?.touched &&
+                ccForm.get('name')?.errors
+            }"
           />
-          <ng-container *ngIf="ccForm.get('name')?.errors">
+          <ng-container
+            *ngIf="
+              ccForm.get('name')?.dirty &&
+              ccForm.get('name')?.touched &&
+              ccForm.get('name')?.errors
+            "
+          >
             <div
               *ngIf="ccForm.get('name')?.errors?.['required']"
               class="invalid-feedback"
