@@ -1,22 +1,19 @@
 <input
   type="text"
   class="form-control"
-  formControlName="name"
   [ngClass]="{
     'is-invalid': control.dirty && control.touched && control.errors
   }"
 />
 <ng-container *ngIf="control.dirty && control.touched && control.errors">
-  <div *ngIf="control.errors?.['required']" class="invalid-feedback">
+  <div *ngIf="control.errors['required']" class="invalid-feedback">
     Please fill in the field
   </div>
-  <div *ngIf="control.errors?.['minlength']" class="invalid-feedback">
+  <div *ngIf="control.errors['minlength']" class="invalid-feedback">
     The value you inputted is
-    {{ control.errors?.['minlength']?.['actualLength'] }}
+    {{ control.errors["minlength"]["actualLength"] }}
     characters long. It must be at least
-    {{
-    control.errors?.['minlength']?.['requiredLength']
-    }}
+    {{ control.errors["minlength"]["requiredLength"] }}
     characters long.
   </div>
 </ng-container>

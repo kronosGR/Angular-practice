@@ -9,5 +9,12 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class AppComponent {
   ccForm = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    num: new FormControl(''),
+    expiration: new FormControl(''),
+    cvv: new FormControl(''),
   });
+
+  submit() {
+    console.log(this.ccForm);
+  }
 }

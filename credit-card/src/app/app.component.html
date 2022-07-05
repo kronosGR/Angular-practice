@@ -1,6 +1,6 @@
 <div class="container">
   <div class="card mt-3">
-    <form class="card-body" [formGroup]="ccForm">
+    <form class="card-body" [formGroup]="ccForm" (ngSubmit)="submit()">
       <div class="row">
         <div class="col-md-6 mb-3">
           <label>Name of card</label>
@@ -8,21 +8,25 @@
         </div>
         <div class="col-md-6 mb-3">
           <label>Credit card number</label>
-          <input type="text" class="form-control" />
+          <app-input [control]="$any(ccForm).get('num')"></app-input>
         </div>
       </div>
       <div class="row">
         <div class="col-md-6 mb-3">
           <label>Expiration</label>
-          <input type="text" class="form-control" />
+          <app-input [control]="$any(ccForm).get('expiration')"></app-input>
         </div>
         <div class="col-md-6 mb-3">
           <label>CVV</label>
-          <input type="text" class="form-control" />
+          <app-input [control]="$any(ccForm).get('cvv')"></app-input>
         </div>
       </div>
       <hr class="mb-4" />
-      <button class="btn btn-primary btn-lg btn-block" type="submit">
+      <button
+        class="btn btn-primary btn-lg btn-block"
+        type="submit"
+        [disabled]="ccForm.invalid"
+      >
         Continue to check out
       </button>
     </form>
