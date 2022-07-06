@@ -1,6 +1,8 @@
 <input
   type="text"
+  [mask]="mask"
   class="form-control"
+  [dropSpecialCharacters]="false"
   [ngClass]="{
     'is-invalid': showMsg()
   }"

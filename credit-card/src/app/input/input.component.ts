@@ -8,6 +8,7 @@ import { FormControl } from '@angular/forms';
 })
 export class InputComponent implements OnInit {
   @Input() control: FormControl = new FormControl();
+  @Input('m') mask: string = '';
 
   constructor() {}
 
