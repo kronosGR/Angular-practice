@@ -2,7 +2,7 @@
   type="text"
   class="form-control"
   [ngClass]="{
-    'is-invalid': control.dirty && control.touched && control.errors
+    'is-invalid': showMsg()
   }"
 />
 <ng-container *ngIf="control.dirty && control.touched && control.errors">

@@ -12,4 +12,9 @@ export class InputComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  showMsg() {
+    const { dirty, touched, errors } = this.control;
+    return dirty && touched && errors;
+  }
 }
