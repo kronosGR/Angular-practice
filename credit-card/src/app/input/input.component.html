@@ -16,4 +16,13 @@
     {{ control.errors["minlength"]["requiredLength"] }}
     characters long.
   </div>
+  <div *ngIf="control.errors['maxlength']" class="invalid-feedback">
+    The value you inputted is
+    {{ control.errors["maxlength"]["actualLength"] }} characters long. It can't
+    be longer than {{ control.errors["maxlength"]["requiredLength"] }}
+    characters long.
+  </div>
+  <div *ngIf="control.errors['pattern']" class="invalid-feedback">
+    Incorrect Format
+  </div>
 </ng-container>
