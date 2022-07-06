@@ -2,7 +2,9 @@
   <div class="card mt-3">
     <form class="card-body">
       <label>E-mail</label>
-      <input type="text" class="form-control" />
+      <input type="text" class="form-control" [(ngModel)]="email" />
+      <!--   same as   <input [value]="email" (input)="email = $event.target.value">-->
+
       <hr class="mb-4" />
       <button class="btn btn-primary" type="submit">Submit</button>
     </form>
