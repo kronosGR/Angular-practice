@@ -2,10 +2,34 @@
   <div class="card mt-3">
     <form class="card-body" #emailFormGroup="ngForm">
       <label>E-mail</label>
-      <input type="text" class="form-control" [(ngModel)]="email" />
-      <!--   same as   <input [value]="email" (input)="email = $event.target.value">-->
-      <div>Values: {{ emailFormGroup.value | json }}</div>
-      <div>Valid: {{ emailFormGroup.valid }}</div>
+      <input
+        type="email"
+        pattern=".+@.+\..+"
+        required
+        #emailFormControl="ngModel"
+        class="form-control"
+        name="emailInput"
+        [(ngModel)]="email"
+        [ngClass]="{
+          'is-invalid': emailFormControl.invalid && emailFormControl.touched
+        }"
+      />
+      <ng-container
+        *ngIf="emailFormControl.invalid && emailFormControl.touched"
+      >
+        <div
+          *ngIf="emailFormControl.hasError('required')"
+          class="invalid-feedback"
+        >
+          Please fill in the field.
+        </div>
+        <div
+          *ngIf="emailFormControl.hasError('pattern')"
+          class="invalid-feedback"
+        >
+          Invalid format.
+        </div>
+      </ng-container>
       <hr class="mb-4" />
       <button class="btn btn-primary" type="submit">Submit</button>
     </form>
