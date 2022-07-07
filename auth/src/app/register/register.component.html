@@ -6,6 +6,7 @@
       class="form-control"
       [formControl]="$any(registerForm).get('email')"
     />
+    {{ registerForm.get("email")?.errors | json }}
   </div>
   <div class="form-group">
     <label>Password</label>
@@ -14,6 +15,7 @@
       class="form-control"
       [formControl]="$any(registerForm).get('password')"
     />
+    {{ registerForm.get("password")?.errors | json }}
   </div>
   <div class="form-group">
     <label>Password Confirmation</label>
@@ -22,6 +24,7 @@
       class="form-control"
       [formControl]="$any(registerForm).get('passwordConfirmation')"
     />
+    {{ registerForm.get("passwordConfirmation")?.errors | json }}
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
