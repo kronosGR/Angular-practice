@@ -1,30 +1,17 @@
 <form>
   <div class="form-group">
     <label>Email address</label>
-    <input
-      type="text"
-      class="form-control"
-      [formControl]="$any(registerForm).get('email')"
-    />
-    {{ registerForm.get("email")?.errors | json }}
+    <app-input [control]="$any(registerForm).get('emai')"></app-input>
   </div>
   <div class="form-group">
     <label>Password</label>
-    <input
-      type="password"
-      class="form-control"
-      [formControl]="$any(registerForm).get('password')"
-    />
-    {{ registerForm.get("password")?.errors | json }}
+    <app-input [control]="$any(registerForm).get('password')"></app-input>
   </div>
   <div class="form-group">
     <label>Password Confirmation</label>
-    <input
-      type="password"
-      class="form-control"
-      [formControl]="$any(registerForm).get('passwordConfirmation')"
-    />
-    {{ registerForm.get("passwordConfirmation")?.errors | json }}
+    <app-input
+      [control]="$any(registerForm).get('passwordConfirmation')"
+    ></app-input>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>

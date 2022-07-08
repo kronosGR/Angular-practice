@@ -11,5 +11,6 @@ import { NgxMaskModule } from 'ngx-mask';
   imports: [BrowserModule, ReactiveFormsModule, NgxMaskModule.forRoot()],
   providers: [],
   bootstrap: [AppComponent],
+  exports: [InputComponent],
 })
 export class AppModule {}
