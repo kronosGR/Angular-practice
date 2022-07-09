@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "angular-auth-9db2c": {
+      "hosting": {
+        "auth": [
+          "angular-auth-9db2c"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "angular-auth-9db2c"
+  }
+}
