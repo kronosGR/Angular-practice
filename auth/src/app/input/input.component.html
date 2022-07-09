@@ -11,17 +11,17 @@
   </div>
   <div *ngIf="control.hasError('minlength')" class="invalid-feedback">
     The value you inputted is
-    {{ control.hasError("minlength", "actualLength") }} characters long. It must
-    be at least {{ control.hasError("minlength", "actualLength") }}
+    {{ control.errors?.['minlength']["actualLength"] }} characters long. It must
+    be at least {{ control.errors?.['minlength']["requiredLength"] }}
     characters long.
   </div>
-  <div *ngIf="control.hasError('maxlength')" class="invalid-feedback">
+  <div *ngIf="control.errors?.['maxlength']" class="invalid-feedback">
     The value you inputted is
-    {{ control.hasError("maxLength", "actualLength") }} characters long. It
-    can't be longer than {{ control.hasError("maxLength", "actualLength") }}
+    {{ control.errors?.["maxLength"]["actualLength"] }} characters long. It
+    can't be longer than {{ control.errors?.["maxLength"][ "requiredLength"] }}
     characters long.
   </div>
-  <div *ngIf="control.hasError('compromised')" class="invalid-feedback">
+  <div *ngIf="control.errors?.['compromised']" class="invalid-feedback">
     Password is unsafe. Please choose another.
   </div>
 </ng-container>
