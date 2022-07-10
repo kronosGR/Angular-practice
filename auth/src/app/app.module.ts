@@ -12,6 +12,7 @@ import { InputComponent } from './input/input.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { environment } from '../environments/environment';
+import { SecretComponent } from './secret/secret.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { environment } from '../environments/environment';
     LoginComponent,
     RegisterComponent,
     InputComponent,
+    SecretComponent,
   ],
   imports: [
     BrowserModule,

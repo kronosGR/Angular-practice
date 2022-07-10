@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Match } from '../validators/match';
 import { CompromisedPassword } from '../validators/compromised-password';
 import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -38,7 +39,8 @@ export class RegisterComponent implements OnInit {
   constructor(
     private match: Match,
     private compromisedPassword: CompromisedPassword,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {}
@@ -54,6 +56,7 @@ export class RegisterComponent implements OnInit {
         password as string
       );
       console.log(result);
+      this.router.navigateByUrl('/secret');
     } catch (e) {
       console.log(e);
     }
