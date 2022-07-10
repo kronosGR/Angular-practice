@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -20,14 +22,22 @@ export class LoginComponent implements OnInit {
     ]),
   });
 
-  constructor() {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {}
 
-  login() {
+  async login() {
     if (this.loginForm.invalid) return;
 
     const { email, password } = this.loginForm.value;
-    console.log(email, password);
+    try {
+      let result = await this.authService.signIn(
+        email as string,
+        password as string
+      );
+      this.router.navigateByUrl('/secret');
+    } catch (e) {
+      this.loginForm.setErrors({ loginFailed: true });
+    }
   }
 }
