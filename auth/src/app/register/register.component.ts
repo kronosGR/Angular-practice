@@ -59,6 +59,7 @@ export class RegisterComponent implements OnInit {
       this.router.navigateByUrl('/secret');
     } catch (e) {
       console.log(e);
+      this.registerForm.setErrors({ registrationFailed: true });
     }
   }
 }
