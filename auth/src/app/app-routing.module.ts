@@ -5,13 +5,27 @@ import { RegisterComponent } from './register/register.component';
 import { SecretComponent } from './secret/secret.component';
 import { LogoutComponent } from './logout/logout.component';
 import { AngularFireAuthGuard } from '@angular/fire/compat/auth-guard';
-import { redirectUnauthorizedTo } from '@angular/fire/auth-guard';
+import {
+  redirectLoggedInTo,
+  redirectUnauthorizedTo,
+} from '@angular/fire/auth-guard';
 
 const authOnly = () => redirectUnauthorizedTo(['']);
+const guestOnly = () => redirectLoggedInTo(['secret']);
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  {
+    path: '',
+    component: LoginComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: guestOnly },
+  },
+  {
+    path: 'register',
+    component: RegisterComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: guestOnly },
+  },
   {
     path: 'secret',
     component: SecretComponent,
