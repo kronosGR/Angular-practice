@@ -13,6 +13,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { environment } from '../environments/environment';
 import { SecretComponent } from './secret/secret.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { SecretComponent } from './secret/secret.component';
     RegisterComponent,
     InputComponent,
     SecretComponent,
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,
