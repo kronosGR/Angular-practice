@@ -1,20 +1,22 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title> KandZ </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-card>
+    <img src="assets/images/classroom.png" alt="classroom" />
+    <ion-card-header>
+      <ion-card-subtitle> Classroom Attendance Manager </ion-card-subtitle>
+      <ion-card-title>KandZ</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>
+        ... is an attendance application originally designed to help school
+        teachers to track students in classes
+      </p>
+    </ion-card-content>
+    <a routerLink="/roster" routerDirection="root">Go to Roster</a>
+  </ion-card>
 </ion-content>
