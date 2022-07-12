@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Student, StudentsService } from '../students.service';
-import { ActionSheetController } from '@ionic/angular';
+import { ActionSheetController, AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-roster',
@@ -12,7 +12,8 @@ export class RosterPage implements OnInit {
 
   constructor(
     private studentService: StudentsService,
-    private actionSheetController: ActionSheetController
+    private actionSheetController: ActionSheetController,
+    private alertController: AlertController
   ) {}
 
   ngOnInit() {
@@ -65,5 +66,19 @@ export class RosterPage implements OnInit {
     });
 
     await actionSheet.present();
+  }
+
+  async presentDeleteAlert(student: Student) {
+    const alert = await this.alertController.create({
+      header: 'Delete this student?',
+      subHeader: `${student.firstName} ${student.lastName}`,
+      message: 'This operation cannot be undone',
+      buttons: [
+        { text: 'Delete', handler: () => this.deleteStudent(student) },
+        { text: 'Never mind', role: 'cancel' },
+      ],
+    });
+
+    await alert.present();
   }
 }
