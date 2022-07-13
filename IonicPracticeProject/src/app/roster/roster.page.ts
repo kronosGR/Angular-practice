@@ -115,4 +115,15 @@ export class RosterPage implements OnInit {
       this.students.push(lastDeleted);
     }
   }
+
+  async sortOrder() {
+    const sortedStudents: Student[] = this.students.sort((a, b) => {
+      let kA = a.lastName,
+        kB = b.lastName;
+      if (kA < kB) return -1;
+      if (kA > kB) return 1;
+      return 0;
+    });
+    this.students = sortedStudents;
+  }
 }
