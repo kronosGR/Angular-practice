@@ -13,6 +13,7 @@ import {
 })
 export class RosterPage implements OnInit {
   students: Student[] = [];
+  deletedStudents: Student[] = [];
 
   constructor(
     private studentService: StudentsService,
@@ -31,6 +32,7 @@ export class RosterPage implements OnInit {
 
   async deleteStudent(student: Student) {
     this.students = this.students.filter((x) => x.id !== student.id);
+    this.deletedStudents.push(student);
 
     const alert = await this.toastController.create({
       message: `${student.firstName} ${student.lastName} deleted.`,
@@ -41,6 +43,12 @@ export class RosterPage implements OnInit {
         {
           text: 'Done',
           role: 'cancel',
+        },
+        {
+          text: 'Undo',
+          handler: () => {
+            this.undoDelete();
+          },
         },
       ],
     });
@@ -99,5 +107,12 @@ export class RosterPage implements OnInit {
     });
 
     await alert.present();
+  }
+
+  async undoDelete() {
+    if (this.deletedStudents.length > 0) {
+      let lastDeleted = this.deletedStudents.pop();
+      this.students.push(lastDeleted);
+    }
   }
 }
