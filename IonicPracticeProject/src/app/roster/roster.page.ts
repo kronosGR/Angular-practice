@@ -53,14 +53,14 @@ export class RosterPage implements OnInit {
       buttons: [
         {
           text: 'Mark Present',
-          icon: 'eye',
+          icon: 'checkmark-circle-outline',
           handler: () => {
             student.status = 'present';
           },
         },
         {
           text: 'Mark Absent',
-          icon: 'eye-off-outline',
+          icon: 'close-circle-outline',
           handler: () => {
             student.status = 'absent';
           },
